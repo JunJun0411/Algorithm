@@ -2,5 +2,7 @@
 using namespace std;
 
 int main(){
-    cout << "JUN JJANG "<<'\n';z
+    int n; cin>>n;
+    
+    cout << "JUN JJANG   "<<'\n';z
 } 
