@@ -2,7 +2,8 @@
 using namespace std;
 
 int main(){
-    int n; cin>>n;
-    
-    cout << "JUN JJANG   "<<'\n';z
+    string input;  
+    cin >> input;
+    cout<< input;
+    cout << "JUN JJANG   "<<'\n';
 } 
