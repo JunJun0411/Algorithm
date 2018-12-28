@@ -1,24 +1,12 @@
 #include <iostream>
 using namespace std;
-int z=0, o=0;
-int fibonacci(int n) {
-    if (n == 0) {
-        z++;
-        return 0;
-    } else if (n== 1) {
-        o++;
-        return 1;
-    } else {
-        return fibonacci(n-1) + fibonacci(n-2);
-    }
-}
-int main(){
-    int T,N; cin>>T;
-    for(int i=0; i<T; i++){
-        printf("%d",)
-        fibonacci(N);
-        cout<<z <<" "<<o<<'\n';
-        z=0;
-        o=0;
-    }
+long long Dp[91] = {};
+int main() {
+	int N; cin >> N;
+	Dp[1] = 1;
+	Dp[2] = 1;
+	for (int i = 3; i <= N; i++) {
+		Dp[i] = Dp[i - 1] + Dp[i - 2];
+	}
+	cout << Dp[N] << '\n';
 }
