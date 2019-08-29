@@ -1,4 +1,5 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (ConsoleApplication2.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  2696번 중앙값 구하기.cpp
+  1504번 특정한 최단 경로.cpp
+c:\users\jun\desktop\준형\visual studio 2015\projects\consoleapplication2\consoleapplication2\boj\1504번 특정한 최단 경로.cpp(25): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   ConsoleApplication2.vcxproj -> C:\Users\JUN\Desktop\준형\Visual Studio 2015\Projects\ConsoleApplication2\Debug\백준.exe
   ConsoleApplication2.vcxproj -> C:\Users\JUN\Desktop\준형\Visual Studio 2015\Projects\ConsoleApplication2\Debug\백준.pdb (Full PDB)
