@@ -1,47 +1,95 @@
 #include <iostream>
-#include <vector>
+#include <queue>
+#define Max 100001
 using namespace std;
 
-const int Max = 100001;
-vector<int> graph[Max];
-int visited[Max];
-int A, B, N, M;
-int n = 0;
-void DFS(int idx) {
-	if (M == idx) return;
-	n++;
-	visited[idx] = true;
-	if (idx !=1 && !visited[idx]) {
-		if (idx * B <= M) DFS(idx*B);
-		else if (idx *B > M && idx*A <= M) DFS(idx*A);
-		else if (idx *A > M && idx + B <= M) DFS(idx + B);
-		else if (idx + B > M && idx + A <= M) DFS(idx + A);
-		else if (idx%B == 0 && idx / B >= M) DFS(idx / B);
-		else if (idx%A == 0 && idx / B < M && idx / A >= M) DFS(idx / A);
-		else if (idx / A < M && idx - B >= M) DFS(idx - B);
-		else if (idx - B < M && idx - A >= M) DFS(idx - A);
-	}
-	else {
-		if (idx + B <= M) DFS(idx+B);
-		else if (idx +B > M && idx*B <= M) DFS(idx*B);
-		else if (idx *B > M && idx + A <= M) DFS(idx + A);
-		else if (idx + A > M && idx * A <= M) DFS(idx * A);
+bool visited[Max];
+
+int DFS(int a, int b, int n, int m) {
+	queue<int> q;
+	q.push(n);
+
+	// n번째 돌다리 방문체크
+	visited[n] = true;
+
+	int count = 0;
+	while (!q.empty()) {
+		count++;
+		
+		int size = q.size();
+		while (size--) {
+			int loc = q.front();
+			q.pop();
+
+			if (loc + 1 == m) return count++;
+			if (loc + a == m) return count++;
+			if (loc + b == m) return count++;
+			if (loc - 1 == m) return count++;
+			if (loc - a == m) return count++;
+			if (loc - b == m) return count++;
+			if (loc * a == m) return count++;
+			if (loc * b == m) return count++;
+
+
+			// 현재위치 + 1 
+			if (loc + 1 < Max && !visited[loc + 1]) {
+				q.push(loc + 1);
+				visited[loc + 1] = true;
+			}
+
+			// 현재위치 - 1
+			if (loc - 1 >= 0 && !visited[loc - 1]) {
+				q.push(loc - 1);
+				visited[loc - 1] = true;
+			}
+
+			// 현재위치 + A 
+			if (loc + a < Max && !visited[loc + a]) {
+				q.push(loc + a);
+				visited[loc + a] = true;
+			}
+
+			// 현재위치 - A
+			if (loc - a >= 0 && !visited[loc - a]) {
+				q.push(loc - a);
+				visited[loc - a] = true;
+			}
+
+			// 현재위치 + B 
+			if (loc + b < Max && !visited[loc + b]) {
+				q.push(loc + b);
+				visited[loc + b] = true;
+			}
+
+			// 현재위치 - B
+			if (loc - b >= 0 && !visited[loc - b]) {
+				q.push(loc - b);
+				visited[loc - b] = true;
+			}
+
+			// 현재위치 * A 
+			if (loc * a < Max && !visited[loc * a]) {
+				q.push(loc * a);
+				visited[loc * a] = true;
+			}
+			// 현재위치 * A 
+			if (loc * b < Max && !visited[loc * b]) {
+				q.push(loc * b);
+				visited[loc * b] = true;
+			}
+		}
 	}
 }
 
+
 int main() {
-	cin >> A >> B >> N >> M; //A배 B배 동규 주미
-	if (A > B) swap(A, B);
-	for (int i = 0; i < Max; i++) {
-		graph[i].push_back(i + A);
-		graph[i].push_back(i + B);
-		graph[i].push_back(i * A);
-		graph[i].push_back(i * B);
-		graph[i + A].push_back(i);
-		graph[i + B].push_back(i);
-		graph[i*A].push_back(i);
-		graph[i*B].push_back(i);
-	}
-	DFS(N);
-	cout << n;
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+
+	// 콩콩 A, B, 동규위치, 주미위치
+	int A, B, N, M;
+	cin >> A >> B >> N >> M;
+
+	cout << DFS(A, B, N, M) << '\n';
+	return 0;
 }

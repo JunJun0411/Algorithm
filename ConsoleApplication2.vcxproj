@@ -18,9 +18,6 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="BOJ\1504번 특정한 최단 경로.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{27839401-42E4-4A8B-9DF3-85AE91805A77}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
