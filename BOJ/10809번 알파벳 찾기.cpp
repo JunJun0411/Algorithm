@@ -1,18 +1,24 @@
 #include <iostream>
 #include <string>
-#include <vector>
+
 using namespace std;
 
 int main() {
-	vector<int> v(26, -1);
-	int x = 0;
-	string s; cin >> s;
-	for (int i = 0; i < s.length(); i++) {
-		if(v[s[i]-'a'] == -1)
-			v[s[i] - 'a'] = i;
-	}
-	for (int j = 0; j < 26; j++) {
-		cout << v[j] << " ";
-	}
+	string s;
+	cin >> s;
+
+	int idx = 0;
+	int arr[26];
+	for (int i = 0; i < 26; i++) arr[i] = -1;
+	
+	int size = s.size();
+	for (int i = 0; i < size; i++) 
+		if(arr[s[i] - 'a'] == -1) 
+			arr[s[i] - 'a'] = i;
+	
+
+	for (int i = 0; i < 26; i++) cout << arr[i] << " ";
 	cout << '\n';
+
+	return 0;
 }
