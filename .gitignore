@@ -1,4 +1,4 @@
 Debug
 *.vcxproj*
-*.sin
+*.sln
 /Project1
