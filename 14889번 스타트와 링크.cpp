@@ -21,6 +21,7 @@ void solve(int cnt) {
 			res -= Map[s2[i]][s2[j]];
 		}
 	}
+	// 절대값의 최소값?
 	answer = min(abs(answer), abs(res));
 }
 
@@ -37,6 +38,7 @@ void dfs(int num, int cnt) {
 			}
 			
 		}
+		// 디버깅
 		/*for (int i = 0; i < cnt; i++) {
 			cout << s1[i] << " ";
 		}
@@ -46,6 +48,7 @@ void dfs(int num, int cnt) {
 		}
 		cout << '\n';*/
 		
+		// 두 팀의 차이 구하기
 		solve(cnt);
 	}
 
