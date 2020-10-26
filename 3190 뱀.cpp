@@ -143,14 +143,22 @@ int main() {
 
 		// 방향 전환
 		snake.changeDir(c);
+
+		/*for (int j = 0; j < N; j++) {
+			for (int k = 0; k < N; k++) {
+				cout << Map[j][k];
+			}
+			cout << '\n';
+		}*/
+		snake.info();
 	}
-	cout <<  (snake.snakeDead() ? "dead" : "live") << '\n';
+	//cout <<  (snake.snakeDead() ? "dead" : "live") << '\n';
 
 	// 모든 방향전환 후에도 움직일 수 있는 경우
 	if (!snake.snakeDead()) answer += solution(N);
-
+	
+   //snake.info();
 	cout << answer << '\n';
-    snake.info();
 	return 0;
 }
 
