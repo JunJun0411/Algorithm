@@ -1,5 +1,7 @@
-Debug
+Debug/
 *.vcxproj*
 *.sln
-/Project1
 /OS
+Project1/.vs/
+Project1/Debug/
+*.obj
